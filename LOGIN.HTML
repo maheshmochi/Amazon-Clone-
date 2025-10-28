@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Sign-In</title>
+  <style>
+    /* Reset & base */
+    *{box-sizing:border-box;font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif}
+    html,body{height:100%;margin:0;background:linear-gradient(180deg,#f3f3f3 0%, #ffffff 100%)}
+
+    /* Centering container */
+    .page{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:32px}
+    .card{
+      width:360px;max-width:96%;background:#fff;border-radius:8px;box-shadow:0 6px 18px rgba(0,0,0,0.08);padding:28px;position:relative
+    }
+
+    /* Brand header */
+    .brand{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+    .logo {
+      width:92px;height:28px;background:linear-gradient(90deg,#ffb84d,#ff9900);border-radius:4px;display:flex;align-items:center;justify-content:center;color:#111;font-weight:700;letter-spacing:0.6px;font-size:14px
+    }
+    .brand h1{font-size:16px;margin:0;color:#111}
+    .brand p{margin:0;font-size:12px;color:#666}
+
+    /* form */
+    form{display:flex;flex-direction:column;gap:12px}
+    label{font-size:13px;color:#111}
+    input[type="text"],input[type="password"],input[type="email"]{
+      width:100%;padding:11px 12px;border:1px solid #ddd;border-radius:4px;font-size:14px
+    }
+    input:focus{outline:none;border-color:#ff9900;box-shadow:0 0 0 3px rgba(255,153,0,0.08)}
+
+    .signin-btn{
+      background:#ff9900;border:none;color:#111;padding:10px 14px;border-radius:6px;font-weight:600;cursor:pointer;font-size:15px
+    }
+    .signin-btn:hover{filter:brightness(.96)}
+
+    .secondary{background:#f8f8f8;border:1px solid #e6e6e6;padding:10px;border-radius:6px;text-align:center;font-size:14px}
+
+    .row{display:flex;justify-content:space-between;align-items:center}
+    .muted{font-size:13px;color:#666}
+    .link{color:#0066c0;text-decoration:none;font-weight:600}
+    .link:hover{text-decoration:underline}
+
+    .divider{height:1px;background:#eee;margin:18px 0}
+
+    .create-account{display:block;text-align:center;padding:10px;border-radius:6px;border:1px solid #d9d9d9;background:#f7f7f7;color:#111;text-decoration:none;font-weight:600}
+
+    /* Small helper text */
+    .help{font-size:12px;color:#666}
+
+    /* Responsive tweaks */
+    @media (max-width:420px){.card{padding:20px;width:92%}.logo{width:84px;height:26px}}
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="card" role="region" aria-label="Sign-in form">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">SHOP</div>
+        <div>
+          <h1>Sign-In</h1>
+          <p class="muted">Welcome back — please sign in to continue</p>
+        </div>
+      </div>
+
+      <form id="signinForm" novalidate>
+        <div>
+          <label for="email">Email or mobile phone number</label>
+          <input id="email" name="email" type="text" inputmode="email" autocomplete="username" required aria-required="true" />
+          <div id="emailError" class="help" style="display:none;color:#b00020"></div>
+        </div>
+
+        <div>
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" autocomplete="current-password" required aria-required="true" />
+          <div class="muted help">Passwords must be at least 6 characters.</div>
+        </div>
+
+        <button class="signin-btn" type="submit">Sign-In</button>
+
+        <div class="row">
+          <label style="display:flex;align-items:center;gap:8px;font-size:13px"><input type="checkbox" id="remember"/> Keep me signed in</label>
+          <a class="link" href="#">Need help?</a>
+        </div>
+
+        <div class="divider" aria-hidden="true"></div>
+
+        <a class="create-account" href="#">Create your account</a>
+      </form>
+
+      <p class="help" style="margin-top:12px">By continuing, you agree to the site's <a class="link" href="#">Conditions of Use</a> and <a class="link" href="#">Privacy Notice</a>.</p>
+
+    </div>
+  </div>
+
+  <script>
+    // Simple client-side validation (no real authentication here)
+    (function(){
+      const form = document.getElementById('signinForm');
+      const email = document.getElementById('email');
+      const password = document.getElementById('password');
+      const emailError = document.getElementById('emailError');
+
+      function validateEmailLike(val){
+        // Accepts either an email-like string or 10-15 digit phone
+        const phoneRe = /^\+?[0-9]{7,15}$/;
+        const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return phoneRe.test(val) || emailRe.test(val);
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        emailError.style.display = 'none';
+
+        const v = email.value.trim();
+        if(!validateEmailLike(v)){
+          emailError.textContent = 'Enter a valid email address or mobile phone number.';
+          emailError.style.display = 'block';
+          email.focus();
+          return;
+        }
+        if(password.value.length < 6){
+          alert('Password must be at least 6 characters.');
+          password.focus();
+          return;
+        }
+
+        // Demo: show a short success message (replace with real auth flow on server)
+        alert('Sign-in submitted — (demo). Replace with real authentication.');
+      });
+    })();
+  </script>
+</body>
+</html>
