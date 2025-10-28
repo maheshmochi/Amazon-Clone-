@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Advanced Fitness Tracker — Product Page</title>
+  <style>
+    :root{
+      --accent:#0a66ec;
+      --cta:#ff4b2b;
+      --bg:#f6f7f9;
+      --card:#fff;
+      --muted:#666;
+      --radius:12px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+      background:var(--bg);
+      color:#111;
+      -webkit-font-smoothing:antialiased;
+    }
+
+    /* NAV */
+    .navbar{
+      background:#111827;
+      color:#fff;
+      padding:12px 18px;
+      display:flex;
+      gap:16px;
+      align-items:center;
+    }
+    .nav-logo{font-weight:700; letter-spacing:.6px; cursor:pointer}
+    .nav-search input{
+      width:220px;
+      padding:8px 10px;
+      border-radius:8px;
+      border:none;
+    }
+
+    /* Container */
+    .container{
+      max-width:1100px;
+      margin:26px auto;
+      padding:20px;
+      background:var(--card);
+      border-radius:var(--radius);
+      box-shadow:0 10px 30px rgba(12,12,12,0.06);
+    }
+    .product-grid{
+      display:grid;
+      grid-template-columns: 1fr 420px;
+      gap:26px;
+    }
+
+    /* Image area */
+    .image-area{display:flex; flex-direction:column; gap:12px}
+    .main-img{
+      background:#fff;
+      border-radius:12px;
+      border:1px solid #ececec;
+      padding:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      height:420px;
+    }
+    .main-img img{max-width:100%; max-height:100%; object-fit:contain}
+
+    .thumbs{display:flex; gap:10px; align-items:center}
+    .thumbs img{
+      width:92px;
+      height:72px;
+      object-fit:cover;
+      border-radius:8px;
+      border:1px solid #ddd;
+      cursor:pointer;
+      transition:transform .12s ease, box-shadow .12s ease;
+    }
+    .thumbs img:hover{transform:translateY(-4px); box-shadow:0 8px 20px rgba(10,10,10,0.06)}
+    .thumbs img.active{outline:3px solid rgba(10,102,236,.12)}
+
+    /* Details */
+    .details h1{font-size:22px; margin:0 0 6px}
+    .meta{color:var(--muted); font-size:14px; margin-bottom:8px}
+    .rating{color:#f5a623; font-weight:700}
+    .price{font-size:28px; color:var(--accent); font-weight:800; margin:10px 0}
+    .specs{margin:12px 0}
+    .specs li{margin:8px 0; color:#333}
+
+    /* Controls */
+    .controls{display:flex; gap:12px; align-items:center; margin-top:14px; flex-wrap:wrap}
+    .btn{
+      padding:12px 16px;
+      border-radius:10px;
+      border:none;
+      font-weight:700;
+      cursor:pointer;
+      transition:transform .08s ease;
+    }
+    .btn:active{transform:translateY(1px)}
+    .btn-primary{background:var(--cta); color:#fff}
+    .btn-outline{background:transparent; border:1px solid rgba(0,0,0,.08); color:#111}
+
+    .qty{
+      display:flex;
+      align-items:center;
+      gap:8px;
+      border:1px solid #e6e6e6;
+      padding:6px 10px;
+      border-radius:8px;
+      background:#fff;
+    }
+    .qty button{background:transparent;border:none;font-weight:700;font-size:16px;cursor:pointer;padding:6px}
+    .qty input{width:48px;text-align:center;border:none;font-weight:700;font-size:15px;}
+
+    .variant{
+      display:flex; gap:12px; margin-top:12px; align-items:center; flex-wrap:wrap;
+      font-size:14px;
+    }
+    .band{
+      width:36px;height:36px;border-radius:8px;border:2px solid transparent;cursor:pointer;
+      display:inline-block;
+    }
+    .band.selected{outline:3px solid rgba(10,102,236,.12)}
+
+    .info-row{display:flex; gap:12px; margin-top:14px; color:var(--muted); font-size:13px}
+
+    /* Specs grid */
+    .spec-grid{display:grid; grid-template-columns: repeat(2,1fr); gap:8px; margin-top:12px}
+    .spec-box{background:#fbfbfb;border:1px solid #f0f0f0;padding:10px;border-radius:8px;font-size:14px}
+
+    /* Mobile */
+    @media (max-width:880px){
+      .product-grid{grid-template-columns: 1fr; padding-bottom:8px}
+      .main-img{height:340px}
+      .nav-search input{width:160px}
+      .spec-grid{grid-template-columns:1fr}
+    }
+
+    footer{font-size:13px; color:var(--muted); text-align:center; margin:18px 0 0}
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div class="nav-logo">FitStore</div>
+    <div class="nav-search"><input placeholder="Search fitness gear..." /></div>
+  </div>
+
+  <div class="container" role="main">
+    <div class="product-grid">
+
+      <!-- IMAGES -->
+      <div class="image-area" aria-label="product images">
+        <div class="main-img" id="mainWrap">
+          <!-- Main tracker image -->
+          <img id="mainImage"
+               src="https://images.unsplash.com/photo-1541534401786-5a13be3b9b2b?q=80&w=1200&auto=format&fit=crop"
+               alt="Advanced Fitness Tracker">
+        </div>
+
+        <div class="thumbs" role="list">
+          <!-- Thumbnails — click to change main image -->
+          <img role="listitem" class="active"
+               src="https://images.unsplash.com/photo-1541534401786-5a13be3b9b2b?q=80&w=400&auto=format&fit=crop"
+               alt="tracker 1" onclick="changeImg(this)">
+                <img role="listitem"
+               src="https://images.unsplash.com/photo-1525182008055-f88b95ff7980?q=80&w=400&auto=format&fit=crop"
+               alt="tracker 3" onclick="changeImg(this)">
+          <img role="listitem"
+               src="https://images.unsplash.com/photo-1526403224741-6f8b5f8a9b6f?q=80&w=400&auto=format&fit=crop"
+               alt="tracker 2" onclick="changeImg(this)">
+        <img role="listitem"
+               src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=400&auto=format&fit=crop"
+               alt="tracker 4" onclick="changeImg(this)">
+
+         
+        </div>
+      </div>
+
+      <!-- DETAILS -->
+      <aside class="details" aria-labelledby="productTitle">
+        <h1 id="productTitle">Advanced Fitness Tracker — Heart Rate • Sleep • GPS</h1>
+
+        <div class="meta">
+          <span class="rating" aria-hidden="true">★★★★★</span>
+          <span style="margin-left:8px">4.6 • 2,012 ratings</span>
+        </div>
+
+        <div class="price" id="price">₹4,499</div>
+
+        <ul class="specs" aria-label="product specifications">
+          <li>24/7 Heart Rate Monitoring + SPO₂</li>
+          <li>Built-in GPS for runs & cycling</li>
+          <li>Sleep tracking, stress monitoring, and guided breathing</li>
+          <li>Water resistant up to 50m • 10-day battery life</li>
+        </ul>
+
+        <!-- Small specs grid -->
+        <div class="spec-grid" aria-hidden="false">
+          <div class="spec-box"><strong>Battery</strong><div>Up to 10 days</div></div>
+          <div class="spec-box"><strong>Sensors</strong><div>HR, SPO₂, Accelerometer, GPS</div></div>
+          <div class="spec-box"><strong>Connectivity</strong><div>Bluetooth 5.0</div></div>
+          <div class="spec-box"><strong>Compatibility</strong><div>iOS & Android</div></div>
+        </div>
+
+        <!-- Color band variants -->
+        <div class="variant" aria-label="band color variants">
+          <span style="font-weight:700">Band:</span>
+          <div class="band selected" data-color="black" title="Black" style="background:#111" onclick="selectBand(this)"></div>
+          <div class="band" data-color="navy" title="Navy" style="background:#1b3b6f" onclick="selectBand(this)"></div>
+          <div class="band" data-color="rose" title="Rose Gold" style="background:#d77" onclick="selectBand(this)"></div>
+          <div class="band" data-color="green" title="Olive" style="background:#487a3c" onclick="selectBand(this)"></div>
+        </div>
+
+        <!-- Controls -->
+        <div class="controls" role="region" aria-label="purchase controls">
+          <div class="qty" aria-label="quantity selector">
+            <button type="button" onclick="changeQty(-1)" aria-label="decrease">−</button>
+            <input id="qty" type="text" value="1" inputmode="numeric" aria-live="polite" />
+            <button type="button" onclick="changeQty(1)" aria-label="increase">+</button>
+          </div>
+
+          <button class="btn btn-primary" id="buyNow">Buy Now</button>
+          <button class="btn btn-outline" id="addCart">Add to Cart</button>
+        </div>
+
+        <div class="info-row">
+          <div>Delivery: <strong>2–4 days</strong></div>
+          <div>Return: <strong>14 days</strong></div>
+        </div>
+
+        <p style="margin-top:12px; color:var(--muted); font-size:14px">
+          Tip: Sync with the FitStore app to get personalized activity goals and weekly health reports.
+        </p>
+      </aside>
+
+    </div>
+  </div>
+
+  <footer>© FitStore — Fitness Tracker Demo</footer>
+
+  <script>
+    // Change main image when thumbnail clicked
+    function changeImg(imgEl){
+      document.getElementById('mainImage').src = imgEl.src;
+      document.querySelectorAll('.thumbs img').forEach(i => i.classList.remove('active'));
+      imgEl.classList.add('active');
+    }
+
+    // Quantity safe change
+    function changeQty(delta){
+      const inp = document.getElementById('qty');
+      let v = parseInt(inp.value) || 1;
+      v += delta;
+      if (v < 1) v = 1;
+      if (v > 99) v = 99;
+      inp.value = v;
+    }
+
+    // Band selection
+    function selectBand(el){
+      document.querySelectorAll('.band').forEach(b => b.classList.remove('selected'));
+      el.classList.add('selected');
+      // You could toggle mainImage based on band if variant images exist
+      const color = el.getAttribute('data-color');
+      // console.log('Selected band:', color);
+    }
+
+    // Buy / Add handlers (replace with real routes)
+    document.getElementById('buyNow').addEventListener('click', function(){
+      const qty = document.getElementById('qty').value;
+      const band = document.querySelector('.band.selected').getAttribute('data-color');
+      // Example checkout URL with params
+      window.location.href = 'checkout.html?product=fitness-tracker&band=' + encodeURIComponent(band) + '&qty=' + encodeURIComponent(qty);
+    });
+
+    document.getElementById('addCart').addEventListener('click', function(){
+      const qty = document.getElementById('qty').value;
+      const band = document.querySelector('.band.selected').getAttribute('data-color');
+      alert('Added to cart — Fitness Tracker • Band: ' + band + ' • Qty: ' + qty);
+      // optional: window.location.href = 'cart.html';
+    });
+
+    // enforce numeric input
+    document.getElementById('qty').addEventListener('input', function(){
+      this.value = this.value.replace(/[^\d]/g, '');
+      if (this.value === '') this.value = '1';
+      if (parseInt(this.value) > 99) this.value = '99';
+    });
+    
+document.querySelector('.btn').addEventListener('click', function () {
+    window.location.href = "PAY.HTML";
+});
+
+  </script>
+</body>
+</html>

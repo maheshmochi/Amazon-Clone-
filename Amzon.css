@@ -1,0 +1,939 @@
+/* ---------- Reset & Base ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box
+}
+
+html,
+body {
+  height: 100%
+}
+
+body {
+  margin: 0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: #f3f5f7;
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none
+}
+
+img {
+  max-width: 100%;
+  display: block
+}
+
+/* ---------- Top thin welcome bar ---------- */
+.topbar {
+  background: #232f3e;
+  color: #fff;
+  text-align: center;
+  padding: 6px 12px;
+  font-size: 19px;
+}
+
+/* ---------- Primary navbar ---------- */
+.navbar {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  padding: 12px 18px;
+  background: #131921;
+  color: #fff;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 140px;
+  cursor: pointer;
+}
+
+.logo .mark {
+  width: 110px;
+  height: 34px;
+  background: linear-gradient(90deg, #ffc013, #ff9500);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: #111;
+  letter-spacing: 0.6px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .2) inset;
+}
+
+.deliver {
+  font-size: 12px;
+  line-height: 1;
+  opacity: .95;
+}
+
+.deliver .country {
+  font-weight: 700
+}
+
+/* Search area */
+.search {
+  display: flex;
+  flex: 1;
+  align-items: center;
+  background: #fff;
+  border-radius: 4px;
+  gap: 6px;
+  margin: 0 8px;
+  position: relative;
+}
+
+.search select {
+  padding: 8px;
+  border: 0;
+  border-radius: 4px 0 0 4px;
+  background: #e6e6e6;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 60px;
+}
+
+.search input {
+  flex: 1;
+  padding: 10px 12px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 15px;
+  border: 0;
+  outline: 0;
+  font-size: 15px;
+  border-left: 1px solid rgba(0, 0, 0, .06);
+}
+
+.search button {
+  padding: 10px 14px;
+  border: 0;
+  background: #febd69;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.order {
+  min-width: 120px;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.small {
+  opacity: .85;
+  font-size: 12px
+}
+
+.big {
+  font-weight: 700
+}
+
+.cart {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 100px;
+  cursor: pointer;
+  position: relative;
+}
+
+.cart .count {
+  position: absolute;
+  top: -6px;
+  left: 18px;
+  background: #f08804;
+  color: #111;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 2px 6px;
+  border-radius: 12px;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, .2) inset;
+}
+
+.signup {
+  min-width: 100px;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.loginbtn {
+  background: #febd69;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-left: 8px;
+
+}
+
+
+.loginbtn:hover {
+  background: #f3a847;
+}
+
+
+
+.account {
+  min-width: 150px;
+  font-size: 13px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.account .small {
+  opacity: .85;
+  font-size: 12px
+}
+
+.account .big {
+  font-weight: 700
+}
+
+/* Secondary nav */
+.nav-secondary {
+  display: flex;
+  gap: 30px;
+  background: #232f3e;
+  color: #fff;
+  padding: 10px 18px;
+  font-size: 14.5px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.nav-secondary a {
+  opacity: .95;
+  white-space: nowrap;
+}
+
+.nav-secondary a:hover {
+  text-decoration: underline;
+}
+
+/* Hero */
+.hero {
+  background-image: url('https://themoneymaniac.com/wp-content/uploads/2022/09/amazon-seller-central-sign-up-1024x395.jpg');
+  background-size: cover;
+  background-position: center;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  gap: 24px;
+}
+
+.hero .left {
+  max-width: 520px;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 20px;
+  border-radius: 6px;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, .15);
+}
+
+.hero h1 {
+  margin: 0 0 8px 0;
+  font-size: 26px;
+}
+
+.hero p {
+  margin: 0;
+  color: #333;
+  line-height: 1.4
+}
+
+/* Product grid */
+.container {
+  max-width: 1200px;
+  margin: 18px auto;
+  padding: 0 16px;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, .06);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 300px;
+}
+
+.card .imgwrap {
+  height: 150px;
+  background: #f6f6f6;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center
+}
+
+.card h3 {
+  font-size: 16px;
+  margin: 0 0 4px 0
+}
+
+.price {
+  font-weight: 800;
+  font-size: 18px;
+  color: #b12704
+}
+
+.rating {
+  color: #555;
+  font-size: 13px
+}
+
+.card .actions {
+  margin-top: auto;
+  display: flex;
+  gap: 8px
+}
+
+.btn {
+  border: 0.7px;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background-color: rgb(255, 255, 0);
+  cursor: pointer;
+  font-weight: 700;
+}
+
+/* === BUTTON SET 1 === */
+.btn.primary1 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost1 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary1:hover {
+  background: #ffb900;
+}
+
+.btn.ghost1:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 2 === */
+.btn.primary2 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost2 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary2:hover {
+  background: #ffb900;
+}
+
+.btn.ghost2:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 3 === */
+.btn.primary3 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost3 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary3:hover {
+  background: #ffb900;
+}
+
+.btn.ghost3:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 4 === */
+.btn.primary4 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost4 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary4:hover {
+  background: #ffb900;
+}
+
+.btn.ghost4:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 5 === */
+.btn.primary5 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost5 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary5:hover {
+  background: #ffb900;
+}
+
+.btn.ghost5:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 6 === */
+.btn.primary6 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost6 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary6:hover {
+  background: #ffb900;
+}
+
+.btn.ghost6:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 7 === */
+.btn.primary7 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost7 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary7:hover {
+  background: #ffb900;
+}
+
+.btn.ghost7:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 8 === */
+.btn.primary8 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost8 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary8:hover {
+  background: #ffb900;
+}
+
+.btn.ghost8:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 9 === */
+.btn.primary9 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost9 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary9:hover {
+  background: #ffb900;
+}
+
+.btn.ghost9:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 10 === */
+.btn.primary10 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost10 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary10:hover {
+  background: #ffb900;
+}
+
+.btn.ghost10:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 11 === */
+.btn.primary11 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost11 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary11:hover {
+  background: #ffb900;
+}
+
+.btn.ghost11:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 12 === */
+.btn.primary12 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost12 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary12:hover {
+  background: #ffb900;
+}
+
+.btn.ghost12:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 13 === */
+.btn.primary13 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost13 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary13:hover {
+  background: #ffb900;
+}
+
+.btn.ghost13:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 14 === */
+.btn.primary14 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost14 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary14:hover {
+  background: #ffb900;
+}
+
+.btn.ghost14:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 15 === */
+.btn.primary15 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost15 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary15:hover {
+  background: #ffb900;
+}
+
+.btn.ghost15:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 16 === */
+.btn.primary16 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost16 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary16:hover {
+  background: #ffb900;
+}
+
+.btn.ghost16:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 17 === */
+.btn.primary17 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost17 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary17:hover {
+  background: #ffb900;
+}
+
+.btn.ghost17:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 18 === */
+.btn.primary18 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost18 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary18:hover {
+  background: #ffb900;
+}
+
+.btn.ghost18:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 19 === */
+.btn.primary19 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost19 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary19:hover {
+  background: #ffb900;
+}
+
+.btn.ghost19:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 20 === */
+.btn.primary20 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost20 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary20:hover {
+  background: #ffb900;
+}
+
+.btn.ghost20:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 21 === */
+.btn.primary21 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost21 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary21:hover {
+  background: #ffb900;
+}
+
+.btn.ghost21:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 22 === */
+.btn.primary22 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost22 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary22:hover {
+  background: #ffb900;
+}
+
+.btn.ghost22:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+/* === BUTTON SET 23 === */
+.btn.primary23 {
+  background: #ffd500;
+  color: #111;
+}
+
+.btn.ghost23 {
+  background: transparent;
+  border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.btn.primary23:hover {
+  background: #ffb900;
+}
+
+.btn.ghost23:hover {
+  background: rgba(0, 0, 0, .04);
+}
+
+
+.more {
+  flex: 1;
+  background: #e7e7e7;
+  border: none;
+  padding: 8px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.more:hover {
+  background: #d4d4d4;
+  color: #000000;
+  border: 2px solid #000000;
+
+}
+
+.more:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(21, 156, 228, 0.4);
+}
+
+/* Responsive */
+@media (max-width:1000px) {
+  .products {
+    grid-template-columns: repeat(2, 1fr)
+  }
+
+  .hero {
+    height: 300px;
+  }
+}
+
+@media (max-width:640px) {
+  .navbar {
+    flex-wrap: wrap;
+    padding: 10px
+  }
+
+  .logo {
+    min-width: 120px
+  }
+
+  .search {
+    order: 3;
+    width: 100%
+  }
+
+  .search input {
+    font-size: 14px
+  }
+
+  .nav-secondary {
+    overflow: none;
+    white-space: nowrap;
+    padding: 8px;
+    gap: 12px;
+    font-size: 13px;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+
+
+
+  .products {
+    grid-template-columns: 1fr;
+    gap: 52px
+  }
+
+  .hero {
+    height: 220px;
+    padding: 13px;
+  }
+}
+
+.footer {
+  background: #232F3E;
+  color: #dddddd;
+  padding: 40px 20px;
+}
+
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.footer-col {
+  width: 23%;
+  min-width: 200px;
+  margin-bottom: 20px;
+}
+
+.footer-col h4 {
+  margin-bottom: 12px;
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.footer-col a {
+  display: block;
+  color: #dddddd;
+  text-decoration: none;
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.footer-col a:hover {
+  text-decoration: underline;
+}
+
+.footer-middle {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.footer-middle .logo {
+  width: 100px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.footer-middle select {
+  margin: 0 10px;
+  background: #232F3E;
+  color: #fff;
+  padding: 8px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+}
+
+.footer-bottom {
+  text-align: center;
+  border-top: 1px solid #3a4553;
+  padding-top: 20px;
+}
+
+.footer-bottom a {
+  color: #ddd;
+  margin: 0 10px;
+  font-size: 13px;
+  text-decoration: none;
+}
+
+.footer-bottom a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom p {
+  margin-top: 10px;
+  font-size: 13px;
+}
+
+.footer-services {
+  max-width: 1200px;
+  margin: auto;
+  padding: 25px 20px 10px;
+  border-top: 1px solid #3a4553;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  text-align: left;
+}
+
+.footer-services a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+.footer-services a:hover {
+  text-decoration: underline;
+}
+
+.footer-services strong {
+  color: #fff;
+  font-size: 14px;
+}

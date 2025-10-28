@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mobile Product Page — Mobile Friendly</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f2f3f5;
+        color: #111;
+    }
+
+    .navbar {
+        background: #131921;
+        color: white;
+        padding: 12px 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .nav-logo {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .nav-search {
+        flex: 1;
+    }
+
+    .nav-search input {
+        width: 100%;
+        padding: 8px;
+        border-radius: 4px;
+        border: none;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 10px auto;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .product-box {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .image-area {
+        flex: 1;
+        min-width: 300px;
+    }
+
+    .main-img {
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .main-img img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        object-fit: contain;
+    }
+
+    .thumbs {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+
+    .thumbs img {
+        width: 70px;
+        height: 70px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .details {
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .price {
+        font-size: 26px;
+        color: #0a66ec;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+
+    .btn {
+        background: #ff9900;
+        color: #111;
+        padding: 12px 18px;
+        border: none;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 12px;
+        font-size: 13px;
+        color: #777;
+    }
+
+    /* ✅ Mobile Responsive */
+    @media (max-width: 600px) {
+        .product-box {
+            flex-direction: column;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="nav-logo">Amazon</div>
+    <div class="nav-search"><input type="text" placeholder="Search..."></div>
+</div>
+
+<div class="container">
+    <div class="product-box">
+
+        <div class="image-area">
+            <div class="main-img">
+                <img id="mainImage"
+                     src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=1200&auto=format&fit=crop"
+                     alt="">
+            </div>
+
+            <div class="thumbs">
+                <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=300&auto=format&fit=crop"
+                     onclick="changeImg(this)">
+                <img src="https://images.unsplash.com/photo-1598327105740-c0f3c4f7b3ab?q=80&w=300&auto=format&fit=crop"
+                     onclick="changeImg(this)">
+                <img src="https://images.unsplash.com/photo-1567581935884-3349723552ca?q=80&w=300&auto=format&fit=crop"
+                     onclick="changeImg(this)">
+            </div>
+        </div>
+
+        <div class="details">
+            <h2>Smartphone — 6.5" Display • 8GB RAM • 128GB Storage</h2>
+            <p>★★★★★ (9200+)</p>
+
+            <div class="price">₹21,999</div>
+
+            <ul>
+                <li>6.5" Full HD AMOLED Display</li>
+                <li>8GB RAM • 128GB Internal Storage</li>
+                <li>5000mAh Long Battery Life</li>
+                <li>64MP Triple Camera</li>
+            </ul>
+
+            <button class="btn">Buy Now</button>
+        </div>
+
+    </div>
+</div>
+
+<footer>Mobile Friendly Product Page</footer>
+
+<script>
+    function changeImg(img) {
+        document.getElementById("mainImage").src = img.src;
+    }
+    
+document.querySelector('.btn').addEventListener('click', function () {
+    window.location.href = "PAY.HTML";
+});
+
+</script>
+
+</body>
+</html>

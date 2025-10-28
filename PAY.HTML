@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="gu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Amazon Payment UI - Gujarati</title>
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+ body{
+   background:#f6f6f6;
+   font-family: 'Segoe UI', Arial;
+ }
+
+ .header{
+   background:#131921;
+   padding:18px;
+   font-size:26px;
+   color:#ffce44;
+   font-weight:700;
+   text-align:center;
+   letter-spacing:1px;
+ }
+
+ .product-card{
+   max-width:980px;
+   margin:40px auto;
+   border-radius:15px;
+   box-shadow:0 8px 32px rgba(0,0,0,0.18);
+   background:white;
+   transition:0.3s;
+ }
+ .product-card:hover{transform:scale(1.01)}
+
+ .btn-pay{
+   border-radius:40px;
+   padding:12px 22px;
+   font-size:18px;
+   font-weight:600;
+ }
+
+ .price{
+   color:#007700;
+   font-size:30px;
+   font-weight:700;
+ }
+
+ .drawer{
+   position:fixed;
+   right:0; top:0;
+   width:430px;
+   height:100%;
+   background:white;
+   box-shadow:-12px 0 35px rgba(0,0,0,0.25);
+   padding:25px;
+   transform:translateX(100%);
+   transition:0.45s cubic-bezier(.4,0,.2,1);
+   z-index:3000;
+ }
+
+ .drawer.open{transform:translateX(0)}
+
+ .payment-option{
+   border:2px solid #e1e1e1;
+   border-radius:14px;
+   padding:14px;
+   cursor:pointer;
+   margin-bottom:12px;
+   transition:.3s;
+   background:#fff;
+ }
+ .payment-option:hover{
+   border-color:#ff9900;
+   background:#fff8e1;
+   transform:translateY(-3px);
+ }
+
+ .qr-box{
+   display:none;
+   border:2px dashed #333;
+   border-radius:12px;
+   padding:18px;
+   background:#eff7ff;
+   animation:fade .4s;
+ }
+
+ @keyframes fade{
+   from{opacity:0} to{opacity:1}
+ }
+
+ .successBox{
+   display:none;
+   background:#e6ffe6;
+   padding:12px;
+   border-left:6px solid green;
+   border-radius:6px;
+   margin-top:10px;
+   animation:fade .5s;
+ }
+
+</style>
+</head>
+<body>
+
+<div class="header">Amazon Payment Demo UI 🔐</div>
+
+<div class="container">
+<div class="product-card row p-4">
+ <div class="col-md-5 text-center p-3">
+   <img src="ONLINEPAYMENT" class="img-fluid rounded">
+ </div>
+
+ <div class="col-md-7 p-3">
+   <h3>Amazon Demo Product</h3>
+   <p>ગુજરાતી Amazon જેવી ચુકવણી UI ડિઝાઇન</p>
+   <p class="price">₹999</p>
+
+   <button id="btnOnline" class="btn btn-warning btn-pay w-100 mb-2">💳 Online ચુકવણી</button>
+   <button id="btnCOD" class="btn btn-outline-danger btn-pay w-100 mb-2">CASH ON Delivery</button>
+   <button id="btnCart" class="btn btn-success btn-pay w-100">🛒 Add to Cart</button>
+
+   <div id="codMsg" class="text-danger fw-bold mt-2" style="display:none">
+     COD હાલમાં ઉપલબ્ધ નથી ❌
+   </div>
+   <div id="cartMsg" class="successBox">કાર્ટમાં ઉમેરાઈ ગયું ✅</div>
+ </div>
+</div>
+</div>
+
+<!-- PAYMENT DRAWER -->
+<div id="drawer" class="drawer">
+ <div class="d-flex justify-content-between mb-3">
+   <h4 class="text-dark">ચુકવણી પદ્ધતિ</h4>
+   <button class="btn btn-sm btn-dark" onclick="closeDrawer()">✖</button>
+ </div>
+
+ <div class="payment-option" onclick="showUpi()">UPI 💠 (Google Pay / PhonePe)</div>
+ <div class="payment-option" onclick="showQR()">QR Scan & Pay 📷</div>
+ <div class="payment-option" onclick="showUpi()">UPI 💠 (Google Pay / PhonePe)</div>
+ <div class="payment-option" onclick="showCard()">Credit / Debit Card 💳</div>
+
+ <!-- QR -->
+ <div id="qrBox" class="qr-box mt-3">
+   <img src="SCANNER.webp">
+   <p class="mt-2 fw-bold">સ્કેન કરીને ચૂકવો ✅</p>
+ </div>
+
+ <!-- CARD PAYMENT -->
+ <div id="cardForm" style="display:none;animation:fade .4s">
+   <label class="fw-bold">કાર્ડ નંબર</label>
+   <input class="form-control mb-2" placeholder="XXXX XXXX XXXX XXXX">
+   <div class="row">
+     <div class="col">
+       <label>MM/YY</label>
+       <input class="form-control" placeholder="MM/YY">
+     </div>
+     <div class="col">
+       <label>CVV</label>
+       <input type="password" class="form-control" placeholder="CVV">
+     </div>
+   </div>
+   <button class="btn btn-success w-100 mt-3" onclick="paySuccess()">Pay ✅</button>
+ </div>
+
+ <!-- UPI FORM -->
+ <div id="upiForm" style="display:none;animation:fade .4s">
+   <label class="fw-bold">UPI ID</label>
+   <input class="form-control" placeholder="your@upi">
+   <button class="btn btn-success w-100 mt-3" onclick="paySuccess()">Verify & Pay ✅</button>
+ </div>
+
+ <div id="payDone" class="successBox fw-bold">✅ ચુકવણી સફળ થઈ!</div>
+
+
+</div>
+
+
+<script>
+const drawer=document.getElementById("drawer");
+const codMsg=document.getElementById("codMsg");
+const cartMsg=document.getElementById("cartMsg");
+
+btnOnline.onclick=()=>{ openDrawer(); }
+btnCOD.onclick=()=>{ codMsg.style.display="block"; }
+btnCart.onclick=()=>{
+ cartMsg.style.display="block";
+ setTimeout(()=>cartMsg.style.display="none",2000);
+}
+
+// Drawer
+function openDrawer(){ drawer.classList.add("open"); }
+function closeDrawer(){ drawer.classList.remove("open"); }
+
+// Hide All Sections
+function hideAll(){
+ qrBox.style.display="none";
+ cardForm.style.display="none";
+ upiForm.style.display="none";
+ payDone.style.display="none";
+}
+
+function showQR(){ hideAll(); qrBox.style.display="block"; }
+function showCard(){ hideAll(); cardForm.style.display="block"; }
+function showUpi(){ hideAll(); upiForm.style.display="block"; }
+
+function paySuccess(){
+ hideAll();
+ payDone.style.display="block";
+ setTimeout(()=>closeDrawer(),2000);
+}
+</script>
+
+</body>
+</html>

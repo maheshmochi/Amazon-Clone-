@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Makeup Product Page — Mobile Friendly</title>
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        background: #f7e8f4;
+        color: #111;
+    }
+
+    .navbar {
+        background: #a50064;
+        color: white;
+        padding: 12px 15px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .nav-logo {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .nav-search {
+        flex: 1;
+    }
+
+    .nav-search input {
+        width: 100%;
+        padding: 8px;
+        border-radius: 4px;
+        border: none;
+    }
+
+    .container {
+        max-width: 1000px;
+        margin: 10px auto;
+        background: white;
+        padding: 15px;
+        border-radius: 10px;
+    }
+
+    .product-box {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+    }
+
+    .image-area {
+        flex: 1;
+        min-width: 280px;
+    }
+
+    .main-img {
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .main-img img {
+        width: 100%;
+        max-width: 350px;
+        height: auto;
+        object-fit: cover;
+    }
+
+    .thumbs {
+        display: flex;
+        gap: 10px;
+        margin-top: 10px;
+        overflow-x: auto;
+        padding-bottom: 5px;
+    }
+
+    .thumbs img {
+        width: 70px;
+        height: 70px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        cursor: pointer;
+        flex-shrink: 0;
+    }
+
+    .details {
+        flex: 1;
+        min-width: 250px;
+    }
+
+    .price {
+        font-size: 26px;
+        color: #d10063;
+        font-weight: bold;
+        margin: 10px 0;
+    }
+
+    .btn {
+        background: #ff4d94;
+        color: #fff;
+        padding: 12px 18px;
+        border: none;
+        font-weight: bold;
+        border-radius: 6px;
+        cursor: pointer;
+        width: 100%;
+        font-size: 16px;
+        margin-top: 10px;
+    }
+
+    footer {
+        text-align: center;
+        padding: 12px;
+        font-size: 13px;
+        color: #777;
+    }
+
+    @media (max-width: 600px) {
+        .product-box {
+            flex-direction: column;
+        }
+    }
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+    <div class="nav-logo">Beauty Store</div>
+    <div class="nav-search"><input type="text" placeholder="Search Makeup..."></div>
+</div>
+
+<div class="container">
+    <div class="product-box">
+
+        <div class="image-area">
+            <div class="main-img">
+                <img id="mainImage"
+                     src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?q=80&w=1000&auto=format&fit=crop"
+                     alt="Lipstick">
+            </div>
+
+            <div class="thumbs">
+                <img src="https://images.unsplash.com/photo-1508672019048-805c876b67e2?q=80&w=300&auto=format&fit=crop" onclick="changeImg(this)">
+                <img src="https://images.unsplash.com/photo-1586495777744-4413f21062fa?q=80&w=300&auto=format&fit=crop" onclick="changeImg(this)">
+                <img src="https://images.unsplash.com/photo-1580136607079-0ae4b1eabf2e?q=80&w=300&auto=format&fit=crop" onclick="changeImg(this)">
+            </div>
+        </div>
+
+        <div class="details">
+            <h2>Premium Matte Lipstick — Ruby Red</h2>
+            <p>★★★★☆ (3200+)</p>
+
+            <div class="price">₹899</div>
+
+            <ul>
+                <li>Long Lasting & Waterproof</li>
+                <li>Highly Pigmented Matte Finish</li>
+                <li>Smooth & Soft Texture</li>
+                <li>Available in 12 Shades</li>
+            </ul>
+
+            <button class="btn">Buy Now :)
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<footer>Makeup Product Page — Designed for Mobile</footer>
+
+<script>
+    function changeImg(img) {
+        document.getElementById('mainImage').src = img.src;
+    }
+</script>
+
+</body>
+</html>

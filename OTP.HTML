@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
+<title>Verify OTP</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+    body { background: #fff; font-family: Arial, sans-serif; margin:0; color:#111; }
+    .container { max-width:380px; margin:50px auto; border:1px solid #ddd; padding:24px; border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,0.1); }
+    h2 { margin-bottom:8px; font-size:22px; }
+    p.sub { margin-top:0; margin-bottom:12px; color:#555; font-size:14px; }
+    input#otp { width:95%; padding:10px; font-size:20px; letter-spacing:10px; text-align:center; border:1px solid #aaa; border-radius:4px; margin-bottom:12px; }
+    .btn { width:100%; padding:10px; background:#f9b302; border:1px solid #000; border-radius:4px; cursor:pointer; font-size:16px; }
+    .controls { display:flex; justify-content:space-between; align-items:center; margin-top:10px; gap:12px; }
+    .resend { color:#0066c0; cursor:pointer; font-size:14px; text-decoration:underline; background:none; border:none; padding:0; }
+    .attempts { font-size:13px; color:#666; }
+    .test-note { margin-bottom:12px; padding:8px; background:#fff7cc; border:1px solid #f1d98a; border-radius:4px; color:#6a4b00; font-size:13px; display:none; }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h2>OTP Verification</h2>
+    <p class="sub">Enter the 4-digit code sent to your number</p>
+
+    <div id="testNote" class="test-note"></div>
+
+    <!-- Input left for user entry, but OTP will be shown via alert, not auto-filled -->
+    <input type="text" id="otp" maxlength="4" inputmode="numeric" placeholder="• • • •" autocomplete="off" aria-label="4 digit OTP">
+
+    <button id="verifyBtn" class="btn" onclick="verifyOtp()">Verify OTP</button>
+
+    <div class="controls">
+        <button id="resendBtn" class="resend" onclick="resendOtp()">Resend OTP</button>
+        <div id="attemptsInfo" class="attempts">Attempts left: 3</div>
+    </div>
+</div>
+
+<script>
+// ====== ფუნქცია OTP માટે ======
+function generateOtp() {
+    // રેન્ડમ 4-ડિજિટ (leading zeros allowed)
+    return Math.floor(10000 * Math.random()).toString().padStart(4, '0');
+}
+
+// સ્ટેટ
+let correctOTP = ""; 
+let attemptsLeft = 3;
+
+function updateAttempts() {
+    document.getElementById("attemptsInfo").innerText = "Attempts left: " + attemptsLeft;
+}
+
+// પેજ લોડ વખતે OTP બનાવો અને alert માં બતાવો
+function sendInitialOtp() {
+    correctOTP = generateOtp();
+    attemptsLeft = 3;
+    updateAttempts();
+    // OTP ALERT - user માં આપેલી માગણી પ્રમાણે
+    alert("તમારો OTP છે: " + correctOTP);
+    // દેખાડવાના માટે નોટ જોવું હોય તો uncomment કરો:
+//    const note = document.getElementById("testNote");
+//    note.innerText = "Test mode: OTP sent via alert (" + correctOTP + ")";
+//    note.style.display = "block";
+}
+
+// Verify ફંક્શન
+function verifyOtp() {
+    let otpInput = document.getElementById("otp");
+    let entered = otpInput.value.trim();
+
+    if (entered.length !== 4 || /\D/.test(entered)) {
+        alert("Enter a valid 4-digit OTP");
+        otpInput.value = "";
+        return;
+    }
+
+    if (entered === correctOTP) {
+        alert("OTP correct — redirecting...");
+        window.location.href = "Amzoncloan.html";
+        return;
+    }
+
+    attemptsLeft--;
+    updateAttempts();
+    alert("OTP is wrong. Try again.");
+    otpInput.value = "";
+
+    if (attemptsLeft <= 0) {
+        alert("Too many wrong attempts! Returning to Sign-in.");
+        window.location.href = "SIGN.HTML";
+    }
+}
+
+// Resend ફંક્શન — નવા OTP બનાવશે અને alert કરશે, attempts રીસેટ કરશે
+function resendOtp() {
+    correctOTP = generateOtp();
+    attemptsLeft = 3;
+    updateAttempts();
+    // OTP ALERT
+    alert("નવો OTP છે: " + correctOTP);
+    // ક્લાયન્ટ સાઈડ ટેસ્ટ માટે input સાફ કરો
+    document.getElementById("otp").value = "";
+}
+
+// ઇનિશિયલાઇઝ કરીને પેજ ખૂલ્યાએ મોકલો
+window.addEventListener('DOMContentLoaded', function() {
+    sendInitialOtp();
+});
+</script>
+
+</body>
+</html>

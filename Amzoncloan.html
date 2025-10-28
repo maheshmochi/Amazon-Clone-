@@ -1,0 +1,583 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Amazon Clone — Single File</title>
+    <link rel="icon" href="ICON.jpg" type="image/x-icon" />
+    <link rel="stylesheet" href="Amzon.css" />
+</head>
+
+<body>
+
+    <div class="topbar">Welcome to My Amazon Clone Created by Mahesh</div>
+
+    <header class="navbar" role="banner">
+        <div class="logo" aria-hidden="true">
+            <div class="mark">Amzon<span style="color:#111;margin-left:4px;">Shop</span></div>
+        </div>
+
+        <div class="deliver" aria-label="deliver to">
+            <div style="font-size:12px;opacity:.9">Deliver to</div>
+            <div class="country" style="margin-top:2px">India</div>
+        </div>
+
+        <div class="search" role="search" aria-label="site search">
+            <select aria-label="category">
+                <option>All</option>
+                <option>Electronics</option>
+                <option>Clothing</option>
+                <option>Home & Kitchen</option>
+                <option>Sports</option>
+                <option>Toys</option>
+                <option>Beauty</option>
+                <option>Books</option>
+                <option>Fashion</option>
+            </select>
+            <input aria-label="search input" placeholder="Search products, brands and more" />
+            <button aria-label="search">Search</button>
+        </div>
+
+        <div class="account" role="button" tabindex="0">
+            <div class="small">Hello, Sign in</div>
+            <div class="big">Account & Lists</div>
+        </div>
+
+        <div class="orders" role="button" tabindex="0">
+            <div class="small">Returns</div>
+            <div class="big">& Orders</div>
+        </div>
+        <div class="cart" role="button" tabindex="0" aria-label="shopping cart">
+            <div class="cart-icon" aria-hidden="true">🛒</div>
+            <div class="cart-count
+" aria-live="polite" aria-atomic="true">0</div>
+            <div class="cart-text">Cart</div>
+        </div>
+
+        <div class="signup">
+            <button class="btn primary">Sign Up</button>
+        </div>
+
+        <div class="login">
+            <button class="loginbtn">Log In</button>
+        </div>
+
+    </header>
+
+    <nav class="nav-secondary" role="navigation" aria-label="secondary">
+        <a href="#">Today's Deals</a>
+        <a href="#">Customer Service</a>
+        <a href="#">Registry</a>
+        <a href="#">Gift Cards</a>
+        <a href="#">Sell</a>
+        <a href="#">Prime</a>
+        <a href="#">Electronics</a>
+        <a href="#">Fashion</a>
+        <a href="#">Prime</a>
+        <a href="#">New Releases</a>
+        <a href="#">Home & Kitchen</a>
+        <a href="#">Best Sellers</a>
+
+    </nav>
+
+    <section class="hero" aria-label="hero">
+        <div class="container" style="display:flex;align-items:center;">
+            <div class="left">
+
+                <h1>Discover great deals — curated for you</h1>
+                <h1> Shop now and save big!</h1>
+                <p>Explore top categories, best sellers and limited-time offers. This page is a UI demo, replace images
+                    and data for a real store.</p>
+                <button class="btn primary" style="margin-top:12px;">Shop Deals</button>
+
+            </div>
+        </div>
+    </section>
+
+    <main class="container" role="main">
+        <h2 style="margin:8px 0 0 0;font-size:20px">Featured products</h2>
+
+        <div class="products" aria-live="polite">
+            <!-- Card 1 -->
+            <article class="card" tabindex="0" aria-label="product 1">
+                <div class="imgwrap"><img
+                        src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?q=80&w=800&auto=format&fit=crop&s=9a1f6f6b2e3b5ff1c0e5f8b2e8f5a3f2"
+                        alt="Headphone" style="max-height:140px"></div>
+                <h3> PHONES</h3>
+                <div class="rating">★★★★☆ (1,234)</div>
+                <div class="price">₹2,499</div>
+                <div class="actions">
+                    <button class="btn primary1">Add to Cart</button>
+                    <button class="btn ghost1">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 2 -->
+            <article class="card" tabindex="0" aria-label="product 2">
+                <div class="imgwrap"><img
+                        src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=800&auto=format&fit=crop&s=6e8f7b9c1d2a4c3b4a5d6e7f8a9b0c1d"
+                        alt="Coffee Maker" style="max-height:140px"></div>
+                <h3>LEPTOP ASUSH</h3>
+                <div class="rating">★★★☆☆ (512)</div>
+                <div class="price">₹4,999</div>
+                <div class="actions">
+                    <button class="btn primary2">Add to Cart</button>
+                    <button class="btn ghost2">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 3 -->
+            <article class="card" tabindex="0" aria-label="product 3">
+                <div class="imgwrap"><img
+                        src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=800&auto=format&fit=crop&s=3d2f7b1c4a5b6c7d8e9f0a1b2c3d4e5f"
+                        alt="Backpack" style="max-height:140px"></div>
+                <h3> MEKAP BOX</h3>
+                <div class="rating">★★★★☆ (876)</div>
+                <div class="price">₹1,799</div>
+                <div class="actions">
+                    <button class="btn primary3">Add to Cart</button>
+                    <button class="btn ghost3">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 4 -->
+            <article class="card" tabindex="0" aria-label="product 4">
+                <div class="imgwrap"><img
+                        src="https://images.unsplash.com/photo-1491897554428-130a60dd4757?q=80&w=800&auto=format&fit=crop&s=5b7b8c9d0a1e2f3c4d5b6a7f8e9c0d1b"
+                        alt="Smart Watch" style="max-height:140px"></div>
+                <h3>Smart Watch — Fitness</h3>
+                <div class="rating">★★★★☆ (2,345)</div>
+                <div class="price">₹6,299</div>
+                <div class="actions">
+                    <button class="btn primary4">Add to Cart</button>
+                    <button class="btn ghost4">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 5 -->
+            <article class="card" tabindex="0" aria-label="product 5">
+                <div class="imgwrap"><img
+                        src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=800&auto=format&fit=crop&s=7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f"
+                        alt="Bluetooth Speaker" style="max-height:140px"></div>
+                <h3>PORTEBALE CHAIR</h3>
+                <div class="rating">★★★★★ (1,678)</div>
+                <div class="price">₹3,199</div>
+                <div class="actions">
+                    <button class="btn primary5">Add to Cart</button>
+                    <button class="btn ghost5">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <article class="card" tabindex="0" aria-label="product 6">
+                <div class="imgwrap"><img
+                        src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8?q=80&w=800&auto=format&fit=crop&s=8e9f0a1b2c3d4e5f6a7b8c9d0e1f2a3b"
+                        alt="Gaming Mouse" style="max-height:140px"></div>
+                <h3>Ergonomic Gaming Mouse</h3>
+                <div class="rating">★★★★☆ (945)</div>
+                <div class="price">₹2,099</div>
+                <div class="actions">
+                    <button class="btn primary6">Add to Cart</button>
+                    <button class="btn ghost6">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <article class="card" tabindex="0" aria-label="product 7">
+                <div class="imgwrap"><img
+                        src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=800&auto=format&fit=crop&s=7c8d9e0f1a2b3c4d5e6f7a8b9c0d1e2f"
+                        alt="Wireless Charger" style="max-height:140px"></div>
+                <h3>Fast Wireless Charger</h3>
+                <div class="rating">★★★★☆ (1,234)</div>
+                <div class="price">₹1,299</div>
+                <div class="actions">
+                    <button class="btn primary7">Add to Cart</button>
+                    <button class="btn ghost7">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!--card 8-->
+            <article class="card" tabindex="0" aria-label="product 8">
+                <div class="imgwrap"><img
+                        src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=800&auto=format&fit=crop&s=3d2f7b1c4a5b6c7d8e9f0a1b2c3d4e5f"
+                        alt="Fitness Tracker" style="max-height:140px"></div>
+                <h3>Advanced Fitness Tracker</h3>
+                <div class="rating">★★★★★ (2,012)</div>
+                <div class="price">₹4,499</div>
+                <div class="actions">
+                    <button class="btn primary8">Add to Cart</button>
+                    <button class="btn ghost8">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+
+            <!-- Card 9 -->
+            <article class="card" tabindex="0" aria-label="product 9">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1585386959984-a41552231693?q=80&w=800&auto=format&fit=crop"
+                        alt="Laptop Stand" style="max-height:140px">
+                </div>
+                <h3>Adjustable Laptop Stand</h3>
+                <div class="rating">★★★★☆ (756)</div>
+                <div class="price">₹1,299</div>
+                <div class="actions">
+                    <button class="btn primary9">Add to Cart</button>
+                    <button class="btn ghost9">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 10 -->
+            <article class="card" tabindex="0" aria-label="product 10">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1541503547571-2bb38f4a1e1d?q=80&w=800&auto=format&fit=crop"
+                        alt="Smartphone" style="max-height:140px">
+                </div>
+                <h3>Android Smartphone — 128GB</h3>
+                <div class="rating">★★★★★ (3,456)</div>
+                <div class="price">₹14,999</div>
+                <div class="actions">
+                    <button class="btn primary10">Add to Cart</button>
+                    <button class="btn ghost10">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 11 -->
+            <article class="card" tabindex="0" aria-label="product 11">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?q=80&w=800&auto=format&fit=crop"
+                        alt="Earbuds" style="max-height:140px">
+                </div>
+                <h3>Noise Cancelling Earbuds</h3>
+                <div class="rating">★★★★☆ (1,289)</div>
+                <div class="price">₹2,899</div>
+                <div class="actions">
+                    <button class="btn primary11">Add to Cart</button>
+                    <button class="btn ghost11">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 12 -->
+            <article class="card" tabindex="0" aria-label="product 12">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1580894894513-4b27e5c9e6bb?q=80&w=800&auto=format&fit=crop"
+                        alt="Keyboard" style="max-height:140px">
+                </div>
+                <h3>Mechanical Keyboard</h3>
+                <div class="rating">★★★★☆ (2,001)</div>
+                <div class="price">₹3,599</div>
+                <div class="actions">
+                    <button class="btn primary12">Add to Cart</button>
+                    <button class="btn ghost12">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 13 -->
+            <article class="card" tabindex="0" aria-label="product 13">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1593642532400-2682810df593?q=80&w=800&auto=format&fit=crop"
+                        alt="Laptop" style="max-height:140px">
+                </div>
+                <h3>Thin & Light Laptop</h3>
+                <div class="rating">★★★★★ (4,789)</div>
+                <div class="price">₹54,999</div>
+                <div class="actions">
+                    <button class="btn primary13">Add to Cart</button>
+                    <button class="btn ghost13">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 14 -->
+            <article class="card" tabindex="0" aria-label="product 14">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1539885111038-84654e2f208e?q=80&w=800&auto=format&fit=crop"
+                        alt="Powerbank" style="max-height:140px">
+                </div>
+                <h3>10000mAh Power Bank</h3>
+                <div class="rating">★★★★☆ (812)</div>
+                <div class="price">₹999</div>
+                <div class="actions">
+                    <button class="btn primary14">Add to Cart</button>
+                    <button class="btn ghost14">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 15 -->
+            <article class="card" tabindex="0" aria-label="product 15">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?q=80&w=800&auto=format&fit=crop"
+                        alt="DSLR Camera" style="max-height:140px">
+                </div>
+                <h3>DSLR Camera — 24MP</h3>
+                <div class="rating">★★★★★ (1,112)</div>
+                <div class="price">₹28,499</div>
+                <div class="actions">
+                    <button class="btn primary15">Add to Cart</button>
+                    <button class="btn ghost15">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 16 -->
+            <article class="card" tabindex="0" aria-label="product 16">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1555617983-9f2f0c0c2990?q=80&w=800&auto=format&fit=crop"
+                        alt="Smart Bulb" style="max-height:140px">
+                </div>
+                <h3>Wi-Fi Smart LED Bulb</h3>
+                <div class="rating">★★★★☆ (648)</div>
+                <div class="price">₹699</div>
+                <div class="actions">
+                    <button class="btn primary16">Add to Cart</button>
+                    <button class="btn ghost16">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 17 -->
+            <article class="card" tabindex="0" aria-label="product 17">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1606813907291-d06f91a3c572?q=80&w=800&auto=format&fit=crop"
+                        alt="Router" style="max-height:140px">
+                </div>
+                <h3>Dual Band Wi-Fi Router</h3>
+                <div class="rating">★★★★☆ (1,054)</div>
+                <div class="price">₹1,599</div>
+                <div class="actions">
+                    <button class="btn primary17">Add to Cart</button>
+                    <button class="btn ghost17">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 18 -->
+            <article class="card" tabindex="0" aria-label="product 18">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1583225173597-66c179be0c6f?q=80&w=800&auto=format&fit=crop"
+                        alt="SSD" style="max-height:140px">
+                </div>
+                <h3>512GB SSD NVMe</h3>
+                <div class="rating">★★★★★ (2,345)</div>
+                <div class="price">₹4,599</div>
+                <div class="actions">
+                    <button class="btn primary18">Add to Cart</button>
+                    <button class="btn ghost18">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 19 -->
+            <article class="card" tabindex="0" aria-label="product 19">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?q=80&w=800&auto=format&fit=crop"
+                        alt="Tablet" style="max-height:140px">
+                </div>
+                <h3>10-inch Tablet — Wi-Fi</h3>
+                <div class="rating">★★★★☆ (973)</div>
+                <div class="price">₹10,499</div>
+                <div class="actions">
+                    <button class="btn primary19">Add to Cart</button>
+                    <button class="btn ghost19">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 20 -->
+            <article class="card" tabindex="0" aria-label="product 20">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1501963631259-3493e96be8f6?q=80&w=800&auto=format&fit=crop"
+                        alt="VR Headset" style="max-height:140px">
+                </div>
+                <h3>VR Headset</h3>
+                <div class="rating">★★★★★ (2,022)</div>
+                <div class="price">₹25,999</div>
+                <div class="actions">
+                    <button class="btn primary20">Add to Cart</button>
+                    <button class="btn ghost20">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 21 -->
+            <article class="card" tabindex="0" aria-label="product 21">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?q=80&w=800&auto=format&fit=crop"
+                        alt="Drone" style="max-height:140px">
+                </div>
+                <h3>Mini Camera Drone</h3>
+                <div class="rating">★★★★☆ (654)</div>
+                <div class="price">₹8,999</div>
+                <div class="actions">
+                    <button class="btn primary21">Add to Cart</button>
+                    <button class="btn ghost21">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 22 -->
+            <article class="card" tabindex="0" aria-label="product 22">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1524678714210-9917a6c619c2?q=80&w=800&auto=format&fit=crop"
+                        alt="Portable Fan" style="max-height:140px">
+                </div>
+                <h3>Rechargeable Mini Fan</h3>
+                <div class="rating">★★★★☆ (412)</div>
+                <div class="price">₹499</div>
+                <div class="actions">
+                    <button class="btn primary22">Add to Cart</button>
+                    <button class="btn ghost22">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+            <!-- Card 23 -->
+            <article class="card" tabindex="0" aria-label="product 23">
+                <div class="imgwrap">
+                    <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?q=80&w=800&auto=format&fit=crop"
+                        alt="Webcam" style="max-height:140px">
+                </div>
+                <h3>HD 1080p Webcam</h3>
+                <div class="rating">★★★★☆ (1,231)</div>
+                <div class="price">₹1,999</div>
+                <div class="actions">
+                    <button class="btn primary23">Add to Cart</button>
+                    <button class="btn ghost23">Buy Now</button>
+                    <button class="more">More Details
+                    </button>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <!-- FOOTER SECTION -->
+    <footer class="footer">
+
+        <!-- FIRST FOOTER SECTION -->
+        <div class="footer-top">
+            <div class="footer-col">
+                <h4>Get to Know Us</h4>
+                <a href="#">About Amazon</a>
+                <a href="#">Careers</a>
+                <a href="#">Press Releases</a>
+                <a href="#">Amazon Science</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Connect with Us</h4>
+                <a href="#">Facebook</a>
+                <a href="#">Twitter</a>
+                <a href="#">
+                    YouTube
+                </a>
+                <a href="#">Instagram</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Make Money with Us</h4>
+                <a href="#">Sell on Amazon</a>
+                <a href="#">Become an Affiliate</a>
+                <a href="#">Fulfilment by Amazon</a>
+                <a href="#">Advertise Your Products</a>
+                <a href="#">Amazon Pay on Merchants</a>
+            </div>
+
+            <div class="footer-col">
+                <h4>Let Us Help You</h4>
+                <a href="#">Your Account</a>
+                <a href="#">Returns Centre</a>
+                <a href="#">100% Purchase Protection</a>
+                <a href="#">Help</a>
+            </div>
+        </div>
+
+        <!-- LOGO + LANGUAGE SECTION -->
+        <div class="footer-middle">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" class="logo" alt="amazon">
+            <select>
+                <option>English</option>
+                <option>हिन्दी</option>
+                <option>বাংলা</option>
+                <option>తెలుగు</option>
+                <option>मराठी</option>
+                <option>தமிழ்</option>
+                <option>ગુજરાતી</option>
+                <option>ಕನ್ನಡ</option>
+                <option>മലയാളം</option>
+                <option>ਪੰਜਾਬੀ</option>
+            </select>
+            <select>
+                <option>India</option>
+                <option>United States</option>
+                <option>United Kingdom</option>
+                <option>Australia</option>
+                <option>Canada</option>
+                <option>Germany</option>
+                <option>France</option>
+                <option>Italy</option>
+                <option>Spain</option>
+                <option>Japan</option>
+            </select>
+        </div>
+
+        <!-- SECOND FOOTER SECTION -->
+        <div class="footer-services">
+            <div><a href="#"><strong>AbeBooks</strong><br>Books, art & collectibles</a></div>
+            <div><a href="#"><strong>Amazon Web Services</strong><br>Scalable Cloud Computing Services</a></div>
+            <div><a href="#"><strong>Audible</strong><br>Download Audio Books</a></div>
+            <div><a href="#"><strong>IMDb</strong><br>Movies, TV & Celebrities</a></div>
+            <div><a href="#"><strong>Shopbop</strong><br>Designer Fashion Brands</a></div>
+            <div><a href="#"><strong>Amazon Business</strong><br>Everything For Your Business</a></div>
+            <div><a href="#"><strong>Prime Now</strong><br>2-Hour Delivery on Everyday Items</a></div>
+            <div><a href="#"><strong>Amazon Prime Music</strong><br>100 million songs, ad-free<br>Over 15 million
+                    podcast episodes</a></div>
+        </div>
+
+        <!-- COPYRIGHT SECTION -->
+        <div class="footer-bottom">
+            <a href="#">Conditions of Use & Sale</a>
+            <a href="#">Privacy Notice</a>
+            <a href="#">Interest-Based Ads</a>
+            <p>© 1996-2025, Amazon.com, Inc. or its affiliates</p>
+        </div>
+
+    </footer>
+    <script src="Amzon.js"></script>
+
+</body>
+
+</html>
